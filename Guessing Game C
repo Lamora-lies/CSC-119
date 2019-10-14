@@ -1,0 +1,45 @@
+#include <iostream>
+#include <ctime>
+#include <string>
+using namespace std;
+
+int main() {
+	int low = 1;
+	int high = 10;
+	int randNum;
+
+	srand((time(NULL))); // srand(time(NULL));
+	randNum = rand() % (high - low + 1) + low;
+	system("pause"); //premade random number generator 
+	cout << randNum <<endl ;
+
+	int userGuess = -1; // variable for the user's guess
+	int totalScore = 5; // variable for user score
+	int replay = 1; // variable for determining if the game will be played again
+	while (replay = 1);
+	{
+		cout << "Guess a number between 1 and 10\n";
+		cin >> userGuess;
+		do {/*While the user's guess is not not equal to the random number, run this code  */
+
+			if (userGuess > randNum)
+			{
+				cout << "Too high, guess again\n"; // if the number is too high, output "too high"
+				totalScore = totalScore - 1; // knock a point off the score
+				cin >> userGuess;
+			}
+			else if (userGuess < randNum)
+			{
+				cout << "Too low, guess again\n"; // if the number is too low, output "too low"
+				totalScore = totalScore - 1; // knock a point off the score
+				cin >> userGuess;
+			}
+			cout << "\n Do you want to play again Y/N \n";
+			cin >> replay;
+		} while (userGuess != randNum);
+	} 
+	cout << "Nailed it!\n";
+	cout << "Your Guess " << userGuess;
+	cout << "\nThe random number is " << randNum;
+	cout << "\nYour score is " << totalScore << "\n";
+}
